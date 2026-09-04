@@ -24,7 +24,8 @@ Good luck!
 print("\n----- Challenge 1 -----")
 # Print your list here.
 
-
+colors = ["Orange" "Red" "Blue"]
+print(colors)
 # ==================================================
 # Challenge 2 - Indexing
 # ==================================================
@@ -36,7 +37,7 @@ print("\n----- Challenge 1 -----")
 
 print("\n----- Challenge 2 -----")
 
-
+print(colors(0))
 # ==================================================
 # Challenge 3 - Change an Item
 # ==================================================
@@ -50,7 +51,8 @@ print("\n----- Challenge 2 -----")
 
 print("\n----- Challenge 3 -----")
 
-
+colors[1] = "Purplr"
+print (colors)
 # ==================================================
 # Challenge 4 - Add an Item
 # ==================================================
@@ -61,7 +63,8 @@ print("\n----- Challenge 3 -----")
 
 print("\n----- Challenge 4 -----")
 
-
+colors.append("Gold")
+print(colors)
 # ==================================================
 # Challenge 5 - Remove an Item
 # ==================================================
@@ -72,7 +75,8 @@ print("\n----- Challenge 4 -----")
 
 print("\n----- Challenge 5 -----")
 
-
+colors.remove("Gold")
+print(colors)
 # ==================================================
 # Challenge 6 - Length
 # ==================================================
@@ -83,7 +87,7 @@ print("\n----- Challenge 5 -----")
 # 3
 
 print("\n----- Challenge 6 -----")
-
+print(len(colors))
 
 # ==================================================
 # Challenge 7 - Loop Through a List
@@ -98,6 +102,8 @@ print("\n----- Challenge 6 -----")
 
 print("\n----- Challenge 7 -----")
 
+for color in colors :
+    print(color)
 
 # ==================================================
 # Challenge 8 - Favorite Foods
@@ -109,7 +115,7 @@ print("\n----- Challenge 7 -----")
 
 print("\n----- Challenge 8 -----")
 
-
+Foods = ["Chicken" "Steak" "Tuna" "Cheese"]
 # ==================================================
 # Challenge 9 - Print Each Food
 # ==================================================
@@ -124,6 +130,8 @@ print("\n----- Challenge 8 -----")
 
 print("\n----- Challenge 9 -----")
 
+for Food in Foods :
+    print("I like " + Food)
 
 # ==================================================
 # Challenge 10 - User Input
@@ -140,7 +148,10 @@ print("\n----- Challenge 9 -----")
 
 print("\n----- Challenge 10 -----")
 
-
+Animals = []
+Animal = input("What is your favorite animal?")
+Animals.append(Animal)
+print(Animals)
 # ==================================================
 # ⭐ Bonus Challenge 1
 # ==================================================

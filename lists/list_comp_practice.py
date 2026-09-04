@@ -42,8 +42,14 @@ print("\n----- Challenge 1 -----")
 
 # Your code here
 
-
-
+numbers = [1,2,3,4,5]
+doubled = [number * 2 for number in numbers]
+numbers_list = [1,2,3,4,5]
+doubled_list = []
+for number in numbers_list:
+    doublednumber =2 * number
+    doubled_list.append(doublednumber)
+print(doubled_list)
 # ==========================================
 # Challenge 2 - Square the Numbers
 # ==========================================
@@ -62,7 +68,8 @@ print("\n----- Challenge 2 -----")
 
 # Your code here
 
-
+numbers = [1,2,3,4,5]
+squares = [numbers * numbers for number in numbers]
 
 # ==========================================
 # Challenge 3 - Make Everything Bigger
@@ -84,7 +91,9 @@ print("\n----- Challenge 2 -----")
 print("\n----- Challenge 3 -----")
 
 # Your code here
-
+names = ["alex", "sarah", "mike", "jordan"]
+upper_names = [names.upper() for name in names]
+print(upper_names)
 
 
 # ==========================================
@@ -105,7 +114,9 @@ print("\n----- Challenge 4 -----")
 
 # Your code here
 
-
+numbers = [5,10,15,20]
+added_numbers = [numbers + 10 for number in numbers]
+print(added_numbers)
 
 # ==========================================
 # Challenge 5 - Get Even Numbers
@@ -125,8 +136,11 @@ print("\n----- Challenge 5 -----")
 
 # Your code here
 
-
-
+numbers = [1,2,3,4,5,6,7,8]
+even_numbers = [numbers for number in numbers if number % 2 == 0]
+print(even_numbers)
+odd_numbers = [numbers for number in numbers if number % 2 != 0]
+print(odd_numbers)
 # ==========================================
 # Challenge 6 - Get Big Numbers
 # ==========================================
@@ -145,7 +159,8 @@ print("\n----- Challenge 6 -----")
 
 # Your code here
 
-
+numbers = [5, 20, 8, 100, 3, 50]
+big_numbers = [number for number in numbers if number > 10]
 
 # ==========================================
 # ⭐ Bonus Challenge - Game Scores
@@ -165,7 +180,8 @@ print("\n----- Bonus Challenge -----")
 
 # Your code here
 
-
+scores = [10, 25, 50, 100]
+doubled_scores = [scores * 2 for score in scores]
 
 # ==========================================
 # 🏆 Final Boss - Shopping List
@@ -193,3 +209,10 @@ print("\n----- Bonus Challenge -----")
 print("\n----- Final Boss -----")
 
 # Your code here
+
+shopping = ["apple", "milk", "bread", "eggs"]
+Upper_shopping = [item.upper() for item in shopping]
+shopping_upper = ["apple", "milk", "bread", "eggs"]
+shop_upper = []
+for item in shopping_upper:
+    shop_upper.append(item.upper())

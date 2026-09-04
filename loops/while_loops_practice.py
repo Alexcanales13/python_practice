@@ -25,7 +25,10 @@ print("\n----- Challenge 1 -----")
 # Your code here
 
 
-
+count = 0
+while count <= 10 :
+    print(count)
+    count += 1
 # ==========================================
 # Challenge 2 - Build a List
 # ==========================================
@@ -39,7 +42,14 @@ print("\n----- Challenge 1 -----")
 print("\n----- Challenge 2 -----")
 
 # Your code here
+animals = []
+animalCounter = 0
+while animalCounter <=5 :
+    animalInput = input("Name an animal")
+    animals.append(animalInput)
+    animalCounter += 1
 
+print(animals)
 
 
 # ==========================================
@@ -56,8 +66,12 @@ print("\n----- Challenge 3 -----")
 
 # Your code here
 
-
-
+fruits = ["Apple", "Banana", "Orange", "Grape"]
+index = 0
+length = len(fruits)
+while index <= length :
+    print(fruits[index])
+    index += 1
 # ==========================================
 # Challenge 4 - Shopping List
 # ==========================================
@@ -75,8 +89,15 @@ print("\n----- Challenge 4 -----")
 # Your code here
 
 
-
-# ==========================================
+shopping = []
+shoppingcounter = 0 
+while shoppingcounter < 3 :
+    shoppingInput = input("What should we get while shopping")
+    shopping.append(shoppingInput)
+    shoppingcounter += 1
+print(shopping)
+# =============================
+# =============
 # Challenge 5 - Count Down
 # ==========================================
 
@@ -90,7 +111,13 @@ print("\n----- Challenge 5 -----")
 
 # Your code here
 
-
+countdown = 10 
+while countdown > 0 :
+    if countdown == 5 :
+        print("Halfway there")
+    print(countdown)
+    countdown -= 1
+print("Blast off")
 
 # ==========================================
 # Challenge 6 - Find an Item
@@ -110,7 +137,13 @@ print("\n----- Challenge 6 -----")
 
 # Your code here
 
-
+foods = ["Pizza", "Burger", "Tacos", "Pasta"]
+goal = "Taco"
+index = 0 
+while index < len(foods) :
+    if foods[index] == goal :
+        print("I found the tacos")
+    index += 1
 
 # ==========================================
 # ⭐ Bonus Challenge - Game Inventory
@@ -129,7 +162,14 @@ print("\n----- Challenge 6 -----")
 print("\n----- Bonus Challenge -----")
 
 # Your code here
-
+inventory = []
+item = ""
+while item != "done" :
+    item = input("Enter an item")
+    if item != "done" :
+        inventory.append(item)
+    
+print(inventory)
 
 
 # ==========================================
