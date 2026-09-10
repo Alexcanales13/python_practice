@@ -161,7 +161,7 @@
 #
 #     remove()
 #
-#
+#``
 # ============================================================
 #                 PART 6 - COMPLETE A TASK
 # ============================================================
@@ -375,3 +375,38 @@
 #
 # GOOD LUCK!
 # ============================================================
+task = ["Clean your room", "Do your homework","Put away the cloths ", "Finsih your project"]
+print (1. Add task
+    2. View task
+    3. Remove task
+    4. Complete a task
+    5. Search to find a task
+    6. Count task
+    7. Quit)
+
+action = input( "Enter actions 1 to 7")
+if action == "1":
+    new_task = input("What task woud you like to add?")
+    task.append(new_task)
+elif action == "2":
+    print(task)
+elif action == "3":
+    remove_task = input ("Which task would you like removed?")
+    if remove_task == ("Clean your room") ("Do your homework") ("Put away the cloths ") ("Finsih your project") :
+        task.remove(remove_task)
+elif action == "4":
+    finish_task = input("Which task have you finished")
+    if finish_task in task
+    task.append("Done")
+elif action == "5":
+    find_task = input("Which task would you like to find?")
+    if find_task in task:
+        print("Task found")
+    else:
+        print("Task not found")
+elif action == "6":
+    print(len(task))
+elif action == "7":
+    print("Go complete your tasks")
+else :
+    print("Action not an option" )    
