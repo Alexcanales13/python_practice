@@ -21,3 +21,4 @@ Thumbs.db
 
 # Ignore solution files
 solutions/
+**/Solved/
