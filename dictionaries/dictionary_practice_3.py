@@ -1,15 +1,3 @@
-# DICTIONARY PARSING PRACTICE
-#
-# Goal:
-# Learn how to search through dictionaries,
-# inspect their contents, and find specific information.
-#
-# Rules:
-# 1. Try to solve each challenge yourself.
-# 2. Use loops to inspect dictionary contents.
-# 3. Don't just print the entire dictionary as your answer.
-# 4. Print the specific information requested.
-
 students = {
     "Ben": {"age": 12, "grade": 88, "favorite_subject": "Python"},
     "Alex": {"age": 13, "grade": 72, "favorite_subject": "Math"},
@@ -24,172 +12,434 @@ students = {
 # LEVEL 1: LOOK THROUGH A DICTIONARY
 # --------------------------------------------------
 
-# Challenge 1:
-# Print every student's name.
+print("\nCHALLENGE 1: Student Names")
 
-# Challenge 2:
-# Print every student's name and grade.
+for name in students:
+    print(name)
 
-# Challenge 3:
-# Print the names of students whose grade is above 80.
 
-# Challenge 4:
-# Print the names of students who like Python.
+print("\nCHALLENGE 2: Student Names and Grades")
 
-# Challenge 5:
-# Count how many students are in the dictionary.
-# Do this by looping through the dictionary instead of using len().
+for name, information in students.items():
+    print(name, information["grade"])
+
+
+print("\nCHALLENGE 3: Grades Above 80")
+
+for name, information in students.items():
+    if information["grade"] > 80:
+        print(name)
+
+
+print("\nCHALLENGE 4: Students Who Like Python")
+
+for name, information in students.items():
+    if information["favorite_subject"] == "Python":
+        print(name)
+
+
+print("\nCHALLENGE 5: Count Students")
+
+count = 0
+
+for name in students:
+    count += 1
+
+print("Total students:", count)
 
 
 # --------------------------------------------------
 # LEVEL 2: SEARCH FOR SPECIFIC INFORMATION
 # --------------------------------------------------
 
-# Challenge 6:
-# Ask the user for a subject.
-# Print every student who likes that subject.
+print("\nCHALLENGE 6: Search by Subject")
 
-# Challenge 7:
-# Ask the user for a name.
-# Search through the dictionary to find that student.
-# Print their age, grade, and favorite subject.
-# If the student doesn't exist, print "Student not found."
+subject = input("Enter a subject: ").strip().lower()
+found = False
 
-# Challenge 8:
-# Find and print the student with the highest grade.
-# Do not use max() or sorted().
+for name, information in students.items():
+    if information["favorite_subject"].lower() == subject:
+        print(name)
+        found = True
 
-# Challenge 9:
-# Find and print the student with the lowest grade.
-# Do not use min() or sorted().
+if not found:
+    print("No students found for that subject.")
 
-# Challenge 10:
-# Count how many students have a grade of 80 or higher.
+
+print("\nCHALLENGE 7: Search for a Student")
+
+search_name = input("Enter a student name: ").strip()
+found = False
+
+for name, information in students.items():
+    if name.lower() == search_name.lower():
+        print("Name:", name)
+        print("Age:", information["age"])
+        print("Grade:", information["grade"])
+        print("Favorite subject:", information["favorite_subject"])
+        found = True
+        break
+
+if not found:
+    print("Student not found.")
+
+
+print("\nCHALLENGE 8: Highest Grade")
+
+highest_name = None
+highest_grade = None
+
+for name, information in students.items():
+    grade = information["grade"]
+
+    if highest_grade is None or grade > highest_grade:
+        highest_grade = grade
+        highest_name = name
+
+print("Highest-scoring student:", highest_name)
+print("Grade:", highest_grade)
+
+
+print("\nCHALLENGE 9: Lowest Grade")
+
+lowest_name = None
+lowest_grade = None
+
+for name, information in students.items():
+    grade = information["grade"]
+
+    if lowest_grade is None or grade < lowest_grade:
+        lowest_grade = grade
+        lowest_name = name
+
+print("Lowest-scoring student:", lowest_name)
+print("Grade:", lowest_grade)
+
+
+print("\nCHALLENGE 10: Count Passing Students")
+
+count = 0
+
+for name, information in students.items():
+    if information["grade"] >= 80:
+        count += 1
+
+print("Students with grades of 80 or higher:", count)
 
 
 # --------------------------------------------------
 # LEVEL 3: BUILD A NEW DICTIONARY
 # --------------------------------------------------
 
-# Challenge 11:
-# Create a new dictionary called passing_students.
-# Include only students whose grade is at least 70.
-# Keep their original student records.
+print("\nCHALLENGE 11: Passing Students")
 
-# Challenge 12:
-# Create a dictionary containing only students who like Python.
+passing_students = {}
 
-# Challenge 13:
-# Create a dictionary containing students who are 12 years old.
+for name, information in students.items():
+    if information["grade"] >= 70:
+        passing_students[name] = information
 
-# Challenge 14:
-# Create a dictionary of students who scored 85 or higher.
-# Print the new dictionary after building it.
+print(passing_students)
 
-# Challenge 15:
-# Ask the user for a minimum grade.
-# Build a new dictionary containing every student who
-# scored at least that grade.
+
+print("\nCHALLENGE 12: Python Students")
+
+python_students = {}
+
+for name, information in students.items():
+    if information["favorite_subject"] == "Python":
+        python_students[name] = information
+
+print(python_students)
+
+
+print("\nCHALLENGE 13: Students Aged 12")
+
+twelve_year_old_students = {}
+
+for name, information in students.items():
+    if information["age"] == 12:
+        twelve_year_old_students[name] = information
+
+print(twelve_year_old_students)
+
+
+print("\nCHALLENGE 14: Grades of 85 or Higher")
+
+high_scorers = {}
+
+for name, information in students.items():
+    if information["grade"] >= 85:
+        high_scorers[name] = information
+
+print(high_scorers)
+
+
+print("\nCHALLENGE 15: Filter by Minimum Grade")
+
+minimum_grade = int(input("Enter a minimum grade: "))
+filtered_students = {}
+
+for name, information in students.items():
+    if information["grade"] >= minimum_grade:
+        filtered_students[name] = information
+
+print(filtered_students)
 
 
 # --------------------------------------------------
 # LEVEL 4: PARSE NESTED DICTIONARIES
 # --------------------------------------------------
 
-# Challenge 16:
-# For every student, print:
-# Name, age, grade, and favorite subject.
-#
-# Use a loop and access the inner dictionary.
+print("\nCHALLENGE 16: Complete Student Records")
 
-# Challenge 17:
-# Find every student who:
-# - Is at least 13 years old
-# - Has a grade above 75
+for name, information in students.items():
+    print("--------------------")
+    print("Name:", name)
+    print("Age:", information["age"])
+    print("Grade:", information["grade"])
+    print("Favorite subject:", information["favorite_subject"])
 
-# Challenge 18:
-# Count how many students like each subject.
-#
-# Expected result:
-# {
-#     "Python": 3,
-#     "Math": 2,
-#     "Science": 1
-# }
-#
-# Hint: Make a new dictionary to track the counts.
 
-# Challenge 19:
-# Find all students who have the same grade.
-#
-# Hint:
-# Loop through the students and compare their grades.
-# You may need two loops.
-#
-# Example:
-# Ben and Liam both scored 88.
+print("\nCHALLENGE 17: Students Matching Both Conditions")
 
-# Challenge 20:
-# Find the average grade of all students.
-#
-# Do not use sum() or calculate it from a hardcoded list.
-# Loop through the dictionary and add the grades yourself.
+for name, information in students.items():
+    if information["age"] >= 13 and information["grade"] > 75:
+        print(name, information)
+
+
+print("\nCHALLENGE 18: Count Students by Subject")
+
+subject_counts = {}
+
+for name, information in students.items():
+    subject = information["favorite_subject"]
+
+    if subject not in subject_counts:
+        subject_counts[subject] = 0
+
+    subject_counts[subject] += 1
+
+print(subject_counts)
+
+
+print("\nCHALLENGE 19: Students With the Same Grade")
+
+student_names = list(students.keys())
+
+for i in range(len(student_names)):
+    name1 = student_names[i]
+    grade1 = students[name1]["grade"]
+
+    for j in range(i + 1, len(student_names)):
+        name2 = student_names[j]
+        grade2 = students[name2]["grade"]
+
+        if grade1 == grade2:
+            print(name1, "and", name2, "both scored", grade1)
+
+
+print("\nCHALLENGE 20: Class Average")
+
+total = 0
+count = 0
+
+for name, information in students.items():
+    total += information["grade"]
+    count += 1
+
+if count > 0:
+    average = total / count
+    print("Class average:", round(average, 2))
+else:
+    print("There are no students.")
 
 
 # --------------------------------------------------
 # LEVEL 5: MORE CHALLENGING
 # --------------------------------------------------
 
-# Challenge 21:
-# Find the subject with the most students.
-#
-# First, count how many students like each subject.
-# Then search through the count dictionary to find
-# the subject with the highest count.
-#
-# Do not use max() or sorted().
+print("\nCHALLENGE 21: Most Popular Subject")
 
-# Challenge 22:
-# Find students whose grades are above the class average.
-#
-# First, calculate the average.
-# Then loop through the dictionary again.
+subject_counts = {}
 
-# Challenge 23:
-# Ask the user for a subject.
-# Print the average grade of students who like that subject.
-#
-# If no students like that subject, print a helpful message.
+for name, information in students.items():
+    subject = information["favorite_subject"]
 
-# Challenge 24:
-# Build a dictionary grouping student names by subject.
-#
-# Expected structure:
-# {
-#     "Python": ["Ben", "Noah", "Liam"],
-#     "Math": ["Alex", "Emma"],
-#     "Science": ["Mia"]
-# }
-#
-# Hint:
-# If a subject isn't in your new dictionary yet,
-# create an empty list for it.
-# Then append the student's name.
+    if subject not in subject_counts:
+        subject_counts[subject] = 0
+
+    subject_counts[subject] += 1
+
+most_popular_subject = None
+highest_count = 0
+
+for subject, count in subject_counts.items():
+    if count > highest_count:
+        highest_count = count
+        most_popular_subject = subject
+
+print("Most popular subject:", most_popular_subject)
+print("Number of students:", highest_count)
+
+
+print("\nCHALLENGE 22: Students Above the Class Average")
+
+total = 0
+count = 0
+
+for name, information in students.items():
+    total += information["grade"]
+    count += 1
+
+average = total / count
+
+print("Class average:", round(average, 2))
+
+for name, information in students.items():
+    if information["grade"] > average:
+        print(name, information["grade"])
+
+
+print("\nCHALLENGE 23: Average Grade by Subject")
+
+search_subject = input("Enter a subject: ").strip().lower()
+
+total = 0
+count = 0
+
+for name, information in students.items():
+    if information["favorite_subject"].lower() == search_subject:
+        total += information["grade"]
+        count += 1
+
+if count > 0:
+    average = total / count
+    print("Average grade for", search_subject, ":", round(average, 2))
+else:
+    print("No students found for that subject.")
+
+
+print("\nCHALLENGE 24: Group Students by Subject")
+
+students_by_subject = {}
+
+for name, information in students.items():
+    subject = information["favorite_subject"]
+
+    if subject not in students_by_subject:
+        students_by_subject[subject] = []
+
+    students_by_subject[subject].append(name)
+
+print(students_by_subject)
 
 
 # --------------------------------------------------
 # FINAL CHALLENGE: STUDENT REPORT
 # --------------------------------------------------
 
-# Create a report that displays:
-#
-# 1. Every student's name and grade
-# 2. The class average
-# 3. The highest-scoring student
-# 4. The lowest-scoring student
-# 5. All students who are passing (70 or higher)
-# 6. The number of students who like each subject
-# 7. All students who scored above the class average
-#
-# Try to use functions so each part of the report
-# has its own job.
+def show_student_grades():
+    print("\n--- Student Grades ---")
+
+    for name, information in students.items():
+        print(name, ":", information["grade"])
+
+
+def calculate_class_average():
+    total = 0
+    count = 0
+
+    for name, information in students.items():
+        total += information["grade"]
+        count += 1
+
+    if count == 0:
+        return 0
+
+    return total / count
+
+
+def find_highest_student():
+    highest_name = None
+    highest_grade = None
+
+    for name, information in students.items():
+        grade = information["grade"]
+
+        if highest_grade is None or grade > highest_grade:
+            highest_name = name
+            highest_grade = grade
+
+    if highest_name is not None:
+        print("Highest:", highest_name, "-", highest_grade)
+
+
+def find_lowest_student():
+    lowest_name = None
+    lowest_grade = None
+
+    for name, information in students.items():
+        grade = information["grade"]
+
+        if lowest_grade is None or grade < lowest_grade:
+            lowest_name = name
+            lowest_grade = grade
+
+    if lowest_name is not None:
+        print("Lowest:", lowest_name, "-", lowest_grade)
+
+
+def show_passing_students():
+    print("\n--- Passing Students ---")
+
+    for name, information in students.items():
+        if information["grade"] >= 70:
+            print(name, information["grade"])
+
+
+def show_subject_counts():
+    print("\n--- Students by Subject ---")
+
+    subject_counts = {}
+
+    for name, information in students.items():
+        subject = information["favorite_subject"]
+
+        if subject not in subject_counts:
+            subject_counts[subject] = 0
+
+        subject_counts[subject] += 1
+
+    for subject, count in subject_counts.items():
+        print(subject, ":", count)
+
+
+def show_above_average_students():
+    print("\n--- Above-Average Students ---")
+
+    average = calculate_class_average()
+
+    for name, information in students.items():
+        if information["grade"] > average:
+            print(name, information["grade"])
+
+
+def generate_report():
+    print("\n==============================")
+    print("       STUDENT REPORT")
+    print("==============================")
+
+    show_student_grades()
+
+    average = calculate_class_average()
+    print("\nClass average:", round(average, 2))
+
+    find_highest_student()
+    find_lowest_student()
+    show_passing_students()
+    show_subject_counts()
+    show_above_average_students()
+
+
+generate_report()
